@@ -10,8 +10,17 @@ class Timer extends Component {
   // add your code here
 
 
+  componentDidMount(){
+    this.interval = setInterval(() => {
+      this.setState(()=>{
+        return {time: this.state.time + 1}
+      })
+    }, 1000);
+  }
 
-
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
 
 
 
